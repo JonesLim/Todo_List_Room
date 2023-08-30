@@ -25,6 +25,7 @@ class UpdateTaskViewModel(
             res?.let {
                 title.value = it.title
                 desc.value = it.desc
+                priority.value = it.priority.toString()
             }
         }
 

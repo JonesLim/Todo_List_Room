@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 abstract class BaseTaskViewModel() : ViewModel() {
     val title: MutableStateFlow<String> = MutableStateFlow("")
     val desc: MutableStateFlow<String> = MutableStateFlow("")
+    val priority: MutableStateFlow<String> = MutableStateFlow("")
     val error: MutableSharedFlow<String> = MutableSharedFlow()
     val finish: MutableSharedFlow<Unit> = MutableSharedFlow()
 
@@ -30,16 +31,21 @@ abstract class BaseTaskViewModel() : ViewModel() {
             FieldAndReg(
                 name = "Title",
                 value = title.value,
-                reg = "[A-Za-z0-9 ]{3,20}"
+                reg = "^(?=.*[A-Za-z0-9 ]).{6,20}\$"
             ),
             FieldAndReg(
                 name = "Description",
                 value = desc.value,
-                reg = ".*[A-Za-z0-9]{5,}.*"
+                reg = "^(?=.*[A-Za-z0-9 ]).{6,}\$"
+            ),
+            FieldAndReg(
+                name = "Priority",
+                value = priority.value,
+                reg = "^[0-9]+$"
             )
         )
         if (result.first) {
-            return Task(title = title.value, desc = desc.value)
+            return Task(title = title.value, desc = desc.value, priority = priority.value.toInt())
 
         } else {
             // show error

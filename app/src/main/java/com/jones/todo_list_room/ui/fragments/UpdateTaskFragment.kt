@@ -14,6 +14,8 @@ class UpdateTaskFragment: BaseTaskFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.tvDetails.text = getString(R.string.update_task)
+
         binding.mbSubmit.text = getString(R.string.update)
 
         binding.mbSubmit .setOnClickListener {

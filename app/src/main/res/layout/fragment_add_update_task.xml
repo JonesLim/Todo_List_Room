@@ -15,6 +15,29 @@
         android:padding="20dp"
         tools:context=".ui.fragments.AddTaskFragment">
 
+        <TextView
+            android:id="@+id/tvDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_task"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:id="@+id/etPriority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_border"
+            android:inputType="number"
+            android:padding="10dp"
+            android:maxLines="1"
+            android:hint="@string/enter_priority"
+            android:layout_marginBottom="80dp"
+            android:text="@={viewModel.priority}"
+            />
+
+
         <EditText
             android:id="@+id/etTitle"
             android:layout_width="match_parent"
@@ -43,7 +66,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="match_parent"
             android:gravity="center|bottom"
             android:orientation="horizontal">
 

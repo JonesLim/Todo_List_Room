@@ -16,7 +16,8 @@ class MyApplication: Application() {
             TasksDatabase::class.java,
             TasksDatabase.name
         )
-            .fallbackToDestructiveMigration()
+//            .fallbackToDestructiveMigration()
+            .addMigrations(TasksDatabase.MIGRATION_1_2)
             .build()
 
         tasksRepo = TasksRepo(tasksDatabase.dao)

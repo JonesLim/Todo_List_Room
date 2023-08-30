@@ -9,4 +9,5 @@ data class Task(
     val id: Int? = null,
     val title: String,
     val desc: String,
+    val priority: Int
 )

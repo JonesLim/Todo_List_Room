@@ -33,7 +33,7 @@ class HomeViewModel(
 //        viewModelScope.launch(Dispatchers.IO) {
 //            repo.addTask(task)
 //        }
-//    }
+//    } // for the testing task displayed.
 
     fun deleteTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -64,12 +64,3 @@ class HomeViewModel(
         }
     }
 }
-
-//    val tasks: MutableStateFlow<List<Task>> = MutableStateFlow(emptyList())
-
-//
-//    viewModelScope.launch {
-//    repo.getTasks().collect {
-//        tasks.value = it
-//    }
-//    }

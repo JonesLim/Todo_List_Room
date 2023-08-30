@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:text="The task list is empty!"
                 android:textColor="@color/white"
-                android:textStyle="bold"
+                android:textStyle="bold|italic"
                 android:textSize="24sp" />
 
             <ImageView

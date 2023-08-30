@@ -11,27 +11,44 @@ import com.jones.todo_list_room.data.model.Task
 import com.jones.todo_list_room.data.repo.TasksRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
 
 class HomeViewModel(
     private val repo: TasksRepo
 ) : ViewModel() {
+
+//    val stateFlowTest: MutableStateFlow<String> = MutableStateFlow("Hello State Flow")
+//    val sharedFlowTest: MutableSharedFlow<String> = MutableSharedFlow()
+
     fun getTasks(): Flow<List<Task>> {
         return repo.getTasks()
     }
 
-    fun addTask(task: Task) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repo.addTask(task)
-        }
-    }
+//    fun addTask(task: Task) {
+//        viewModelScope.launch(Dispatchers.IO) {
+//            repo.addTask(task)
+//        }
+//    }
 
     fun deleteTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
             repo.deleteTask(task)
         }
+
+//        viewModelScope.launch {
+//            sharedFlowTest.emit("Hello Shared Flow")
+//        }
+
     }
+
+//    var counter: MutableStateFlow<Int> = MutableStateFlow(0)
+//
+//    fun increment() {
+//        counter.value = counter.value + 1
+//    }
 
 
     companion object {

@@ -41,13 +41,23 @@ class HomeFragment : Fragment() {
 //        val counter = savedInstanceState?.getInt("counter") ?: 0
 //        homeFragmentState.counter.value = counter
 
+
         setUpAdapter()
 
+//        lifecycleScope.launch {
+//            viewModel.getTasks().collect {
+//                adapter.setTasks(it)
+//            }
+//        } // to display the tasks.
+
         lifecycleScope.launch {
-            viewModel.getTasks().collect {
-                adapter.setTasks(it)
+            viewModel.getTasks().collect { tasks ->
+                adapter.setTasks(tasks)
+                val isEmpty = tasks.isEmpty()
+                binding.llEmpty.visibility = if (isEmpty) View.VISIBLE else View.GONE
             }
-        }
+        } // display empty list when there is no tasks.
+
 
 //        binding.efabAdd.setOnClickListener {
 //            val rand = (1..100000).random()
@@ -58,8 +68,8 @@ class HomeFragment : Fragment() {
 //          }
 
         binding.efabAdd.setOnClickListener {
-                val action = HomeFragmentDirections.actionHomeFragmentToAddTaskFragment()
-                NavHostFragment.findNavController(this).navigate(action)
+            val action = HomeFragmentDirections.actionHomeFragmentToAddTaskFragment()
+            NavHostFragment.findNavController(this).navigate(action)
 
 //            homeFragmentState.increment()
 //            viewModel.increment()

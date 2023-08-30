@@ -15,6 +15,31 @@
             android:layout_height="match_parent"
             android:layout_marginHorizontal="16dp" />
 
+        <LinearLayout
+            android:id="@+id/llEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The task list is empty!"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_list"
+                android:layout_marginTop="20dp"
+                android:contentDescription="Empty"
+                app:tint="@color/white" />
+        </LinearLayout>
+
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/efabAdd"
             android:layout_width="wrap_content"
